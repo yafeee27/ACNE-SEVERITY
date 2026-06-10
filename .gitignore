@@ -1,0 +1,30 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Datasets (Large Files)
+test/
+test.zip
+acne_split/
+
+# Training Logs, Output & Temp Models
+runs/
+models/
+figures/
+reports/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Old Keras Model (Optional to ignore, YOLO model is final_model_yolo.pt)
+final_model.keras
+
+# IDE Settings & System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
