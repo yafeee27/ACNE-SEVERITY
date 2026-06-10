@@ -1,8 +1,4 @@
-tensorflow
 streamlit
 numpy
-pandas
-scikit-learn
 Pillow
-matplotlib
 ultralytics
