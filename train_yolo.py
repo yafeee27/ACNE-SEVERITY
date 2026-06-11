@@ -19,7 +19,7 @@ from ultralytics import YOLO
 # Paths
 # ===========================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATASET_DIR = os.path.join(BASE_DIR, "test", "test")  # Parah / Ringan / Sedang
+DATASET_DIR = os.path.join(BASE_DIR, "dataset_unified")  # 0_Aman / 1_Ringan / 2_Sedang / 3_Berat
 SPLIT_DIR   = os.path.join(BASE_DIR, "acne_split")
 
 def prepare_splits():
@@ -98,7 +98,7 @@ def main():
             try:
                 train_images_count = sum(
                     len(os.listdir(os.path.join(SPLIT_DIR, "train", c)))
-                    for c in ["Parah", "Ringan", "Sedang"]
+                    for c in ["0_Aman", "1_Ringan", "2_Sedang", "3_Berat"]
                     if os.path.exists(os.path.join(SPLIT_DIR, "train", c))
                 )
                 if train_images_count > 0:
@@ -123,10 +123,10 @@ def main():
     abs_split_dir = os.path.abspath(SPLIT_DIR)
     print(f"\n>>> Memulai training YOLOv8 pada dataset: {abs_split_dir}")
     
-    # Melatih selama 15 epoch untuk demo/pengujian awal
+    # Melatih selama 50 epoch agar model belajar lebih baik
     results = model.train(
         data=abs_split_dir,
-        epochs=15,
+        epochs=50,
         imgsz=224,
         batch=16,
         project="models",
